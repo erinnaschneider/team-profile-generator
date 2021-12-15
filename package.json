@@ -1,4 +1,26 @@
 {
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erinnaschneider/team-profile-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erinnaschneider/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/erinnaschneider/team-profile-generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0"
   },
