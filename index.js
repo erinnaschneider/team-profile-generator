@@ -44,7 +44,7 @@ const createManager = () => {
             teamNumber.push(value);
             return true;
         } else {
-            console.log(`Please use a number other than what is listed here: ${teamNumber}.`)
+            console.log(`\n\nPlease use a number other than what is listed here: ${teamNumber}.\n`)
             return false;
         }
     }
@@ -58,7 +58,7 @@ const createManager = () => {
             teamEmail.push(value);
             return true;
         } else {
-            console.log("This email address is already in use. Please enter a different email address!")
+            console.log("\n\nThis email address is already in use. Please enter a different email address!\n")
             return false;
         }
     }
@@ -142,7 +142,7 @@ const createEngineer = () => {
                     teamNumber.push(value);
                     return true;
                 } else {
-                    console.log(`Please use a number other than what is listed here: ${teamNumber}.`)
+                    console.log(`\n\nPlease use a number other than what is listed here: ${teamNumber}.\n`)
                     return false;
                 }
             }
@@ -156,7 +156,7 @@ const createEngineer = () => {
                     teamEmail.push(value);
                     return true;
                 } else {
-                    console.log("This email address is already in use. Please enter a different email address!")
+                    console.log("\n\nThis email address is already in use. Please enter a different email address!\n")
                     return false;
                 }
             }
@@ -170,7 +170,7 @@ const createEngineer = () => {
                     engineerGitHub.push(value);
                     return true;
                 } else {
-                    console.log("This GitHub account is already in use. Please enter a different GitHub username!")
+                    console.log("\n\nThis GitHub account is already in use. Please enter a different GitHub username!\n")
                     return false;
                 }
             }
@@ -210,7 +210,7 @@ const createIntern = () => {
                     teamNumber.push(value);
                     return true;
                 } else {
-                    console.log(`Please use a number other than what is listed here: ${teamNumber}.`)
+                    console.log(`\n\nPlease use a number other than what is listed here: ${teamNumber}.\n`)
                     return false;
                 }
             }
@@ -224,7 +224,7 @@ const createIntern = () => {
                     teamEmail.push(value);
                     return true;
                 } else {
-                    console.log("This email address is already in use. Please enter a different email address!")
+                    console.log("\n\nThis email address is already in use. Please enter a different email address!\n")
                     return false;
                 }
             }
