@@ -17,6 +17,8 @@ const generatePage = require('./src/generatePage')
 // WHEN I decide to finish building my team
 const team = [];
 const teamNumber = ["6"];
+const teamEmail = ["erinn@gmail.com"];
+const engineerGitHub = [];
 
 const createManager = () => {
  return inquirer.prompt([
@@ -50,10 +52,19 @@ const createManager = () => {
   {
     type: "input",
     name: "email",
-    message: "What is your email address?"
+    message: "What is your email address?",
+    validate: value => {
+        if (teamEmail.indexOf(value) === -1) {
+            teamEmail.push(value);
+            return true;
+        } else {
+            console.log("This email address is already in use. Please enter a different email address!")
+            return false;
+        }
+    }
   },
   {
-    type: "number",
+    type: "input",
     name: "officeNumber",
     message: "What is your office number?"
   }
@@ -139,12 +150,30 @@ const createEngineer = () => {
         {
             type: 'input', 
             name: 'email',
-            message: "What is the engineer's email address?"
+            message: "What is the engineer's email address?",
+            validate: value => {
+                if (teamEmail.indexOf(value) === -1) {
+                    teamEmail.push(value);
+                    return true;
+                } else {
+                    console.log("This email address is already in use. Please enter a different email address!")
+                    return false;
+                }
+            }
         }, 
         {
             type: 'input', 
             name: 'github',
-            message: "What is the engineer's GitHub username?"
+            message: "What is the engineer's GitHub username?",
+            validate: value => {
+                if (engineerGitHub.indexOf(value) === -1) {
+                    engineerGitHub.push(value);
+                    return true;
+                } else {
+                    console.log("This GitHub account is already in use. Please enter a different GitHub username!")
+                    return false;
+                }
+            }
         }
     ])
     .then(({name, id, email, github}) => {
@@ -189,7 +218,16 @@ const createIntern = () => {
         {
             type: 'input', 
             name: 'email',
-            message: "What is the intern's email address?"
+            message: "What is the intern's email address?",
+            validate: value => {
+                if (teamEmail.indexOf(value) === -1) {
+                    teamEmail.push(value);
+                    return true;
+                } else {
+                    console.log("This email address is already in use. Please enter a different email address!")
+                    return false;
+                }
+            }
         }, 
         {
             type: 'input', 
