@@ -1,9 +1,11 @@
 const generateTeam = team => {
+    console.log(team);
     return `
     <div class="row">
         ${team
             .filter(employee => employee.getRole() === 'Manager')
-            .map(({ name, id, email, officeNum}) => {
+            .map(({ name, id, email, officeNumber}) => {
+                console.log(officeNumber);
                 return `
                 <div class="col d-flex justify-content-center">
                     <div class="card shadow-sm mb-5" style="width: 18rem;">
@@ -15,7 +17,7 @@ const generateTeam = team => {
                             <ul class="list-group list-group-flush ">
                                 <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">ID: <span class="fw-normal">${id}</span></li>
                                 <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">Email: <a href="mailto:${email}" class="fw-normal">${email}</a></li>
-                                <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">Office number: <span class="fw-normal">${officeNum}</span></li>
+                                <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">Office number: <span class="fw-normal">${officeNumber}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -57,7 +59,7 @@ const generateTeam = team => {
                         </div>
                         <div class="card-body bg-light">
                             <ul class="list-group list-group-flush ">
-                                <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">ID: <span class="fw-normal">${id}<span></li>
+                                <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">ID: <span class="fw-normal">${id}</span></li>
                                 <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">Email: <a href="mailto:${email}" class="fw-normal">${email}</a></li>
                                 <li class="list-group-item border border-light rounded shadow-sm mb-2 fw-bold">School: <span class="fw-normal">${school}</span></li>
                             </ul>

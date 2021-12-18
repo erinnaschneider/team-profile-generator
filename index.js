@@ -16,6 +16,7 @@ const generatePage = require('./src/generatePage')
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 // WHEN I decide to finish building my team
 const team = [];
+const teamNumber = ["6"];
 
 const createManager = () => {
  return inquirer.prompt([
@@ -35,7 +36,16 @@ const createManager = () => {
   {
     type: "input",
     name: "id",
-    message: "What is your employee ID?"
+    message: "What is your employee ID?",
+    validate: value => {
+        if (teamNumber.indexOf(value) === -1) {
+            teamNumber.push(value);
+            return true;
+        } else {
+            console.log(`Please use a number other than what is listed here: ${teamNumber}.`)
+            return false;
+        }
+    }
   },
   {
     type: "input",
@@ -44,12 +54,12 @@ const createManager = () => {
   },
   {
     type: "number",
-    name: "officeNum",
+    name: "officeNumber",
     message: "What is your office number?"
   }
 ])
-    .then(({name, id, email, officeNum}) => {
-        const mgr = new Manager(name, id, email, officeNum);
+    .then(({name, id, email, officeNumber}) => {
+        const mgr = new Manager(name, id, email, officeNumber);
 
         team.push(mgr);
 
@@ -115,7 +125,16 @@ const createEngineer = () => {
         {
             type: 'input', 
             name: 'id',
-            message: "What is the engineer's employee ID?"
+            message: "What is the engineer's employee ID?",
+            validate: value => {
+                if (teamNumber.indexOf(value) === -1) {
+                    teamNumber.push(value);
+                    return true;
+                } else {
+                    console.log(`Please use a number other than what is listed here: ${teamNumber}.`)
+                    return false;
+                }
+            }
         },
         {
             type: 'input', 
@@ -156,7 +175,16 @@ const createIntern = () => {
         {
             type: 'input', 
             name: 'id',
-            message: "What is the intern's employee ID?"
+            message: "What is the intern's employee ID?",
+            validate: value => {
+                if (teamNumber.indexOf(value) === -1) {
+                    teamNumber.push(value);
+                    return true;
+                } else {
+                    console.log(`Please use a number other than what is listed here: ${teamNumber}.`)
+                    return false;
+                }
+            }
         },
         {
             type: 'input', 
