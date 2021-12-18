@@ -4,6 +4,7 @@ const Manager = require('./lib/Manager.js');
 const Intern = require('./lib/Intern.js');
 const fs = require('fs');
 const path = require('path');
+const generatePage = require('./src/generatePage')
 
 
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -42,15 +43,15 @@ const createManager = () => {
     message: "What is your email address?"
   },
   {
-    type: "input",
+    type: "number",
     name: "officeNum",
     message: "What is your office number?"
   }
 ])
-    .then(({managerData}) => {
-        const manager = new Manager(managerData);
+    .then(({name, id, email, officeNum}) => {
+        const mgr = new Manager(name, id, email, officeNum);
 
-        team.push(manager);
+        team.push(mgr);
 
         menu();
     });
@@ -61,7 +62,7 @@ const menu = () => {
         {
             type: 'confirm',
             name: 'addEmployee',
-            message: "Do you want to add a new employee?"
+            message: "Would you like to add a new employee?"
         }
     )
     .then (answer => {
@@ -72,6 +73,121 @@ const menu = () => {
             console.log('Generating team profile...')
         createTeam();
     }
+    })
+};
+
+const newEmployee = () => {
+    return inquirer.prompt(
+        {
+            type: 'list',
+            name: 'employeeType',
+            message: "What type of employee would you like to add?",
+            choices: ['Engineer', 'Intern', 'Exit']
+        }
+    )
+    .then (response => {
+        if (response.employeeType === 'Engineer') {
+            createEngineer();
+        } 
+        else if(response.employeeType === 'Intern') {
+            createIntern();
+        } else {
+            menu();
+        }
+    });
+};
+
+const createEngineer = () => {
+    return inquirer.prompt([
+        {
+            type: 'input', 
+            name: 'name',
+            message: "What is the engineer's name?", 
+            validate: value => {
+                if (value) {
+                    return true;
+                } else {
+                    console.log('Please enter a valid name!');
+                    return false
+                }
+            }
+        }, 
+        {
+            type: 'input', 
+            name: 'id',
+            message: "What is the engineer's employee ID?"
+        },
+        {
+            type: 'input', 
+            name: 'email',
+            message: "What is the engineer's email address?"
+        }, 
+        {
+            type: 'input', 
+            name: 'github',
+            message: "What is the engineer's GitHub username?"
+        }
+    ])
+    .then(({name, id, email, github}) => {
+     
+        const eng = new Engineer(name, id, email, github);
+       
+        team.push(eng);
+  
+        menu();
+    });
+};
+
+const createIntern = () => {
+    return inquirer.prompt([
+        {
+            type: 'input', 
+            name: 'name',
+            message: "What is the intern's name?", 
+            validate: value => {
+                if (value) {
+                    return true;
+                } else {
+                    console.log('Please enter a valid name!');
+                    return false
+                }
+            }
+        }, 
+        {
+            type: 'input', 
+            name: 'id',
+            message: "What is the intern's employee ID?"
+        },
+        {
+            type: 'input', 
+            name: 'email',
+            message: "What is the intern's email address?"
+        }, 
+        {
+            type: 'input', 
+            name: 'school',
+            message: "What school does the intern attend?"
+        }
+    ])
+    .then(({name, id, email, school}) => {
+
+        const int = new Intern(name, id, email, school);
+     
+        team.push(int);
+ 
+        menu();
+    });
+}; 
+
+const createTeam = () => {
+    console.log("Success! New team created.");
+    const teamProfile = generatePage(team);
+    //write team data to index.html file
+    fs.writeFile('./dist/index.html', teamProfile, err => {
+        if(err) {
+            console.log(err);
+            return;
+        }
     })
 };
 
