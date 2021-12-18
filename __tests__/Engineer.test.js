@@ -1,5 +1,3 @@
-const { expect } = require('@jest/globals');
-const Employee = require('../lib/Employee');
 const Engineer = require('../lib/Engineer');
 
 describe('testing Engineer Class', ()=>{

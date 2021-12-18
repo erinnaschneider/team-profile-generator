@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 describe('testing Employee Class', ()=>{
-    const emp= new Employee('Erinn', 1, 'test@test.com')
+    const emp = new Employee('Erinn', 1, 'test@test.com')
     test('does this return an object', ()=>{
         expect(typeof(emp)).toBe('object')
     })
