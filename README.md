@@ -28,7 +28,7 @@ Add as many employees as you need to fill out your team's profile!
 
 ## Install
 
-Clone a copy of this repository to your preferred device. In your terminal, run `npm install`. This programm uses the Inquirer package.
+Clone a copy of this repository to your preferred device. In your terminal, run `npm install`. This program uses the Inquirer package.
 
 ## Walkthrough video
 
