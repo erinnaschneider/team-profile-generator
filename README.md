@@ -1,7 +1,7 @@
 # Team Profile Generator
 
 ## Overview:
-An inquirer-based program that generates an HTML page based on the user's inputs of a basic work team structure. The prompts begin with a manager's input and asks for: 
+A program that generates an HTML page, based on the user's inputs, of a basic work team structure. The prompts begin with questions for a team's manager and asks for: 
   * Name
   * Employee number
   * Email address
