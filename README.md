@@ -14,7 +14,7 @@ The option of adding an engineer asks for:
   * Employee number
   * Email address
   * Github username
-   ** Clicking on the Github username will take you to that employee's profile page.
+   * Clicking on the Github username will take you to that employee's profile page.
 
 The option of adding an intern asks for:
   * Name
